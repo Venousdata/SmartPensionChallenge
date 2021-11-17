@@ -9,6 +9,11 @@
   "author": "James Howell",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-promise-router": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.7"
   }
 }
