@@ -1,7 +1,6 @@
-import cors from "cors";
+import { Express } from "express";
 
-export default (app) => {
-  app.use(cors({ origin: "http://localhost:3000" }));
+export default (app: Express): void => {
   app.get("/webpageviews", (req, res) => {
     console.log("==testing==");
     res.send("hello");
