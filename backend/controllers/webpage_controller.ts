@@ -6,9 +6,13 @@ import {
   formatViewsForTable,
 } from "../helpers/webpage.helpers";
 
-export const getWebsiteViews = async (path: string) => {
-  if (!path) throw("Path is required");
-  
+export const getWebsiteViews = async (
+  path: string,
+  sortBy: string,
+  order?: string
+) => {
+  if (!path || !sortBy) throw new Error("Path or sortBy is missing");
+
   const viewData = await readFile(path);
 
   if (viewData) {
@@ -18,6 +22,9 @@ export const getWebsiteViews = async (path: string) => {
     const uniqueViews = Object.fromEntries(generateUniqueViews(viewDataArray));
     const formattedViews = formatViewsForTable(paths, views, uniqueViews);
 
-    return formattedViews;
+    return formattedViews.sort(
+      (a: { [key: string]: any }, b: { [key: string]: any }) =>
+        order && order === "asc" ? a[sortBy] - b[sortBy] : b[sortBy] - a[sortBy]
+    );
   }
 };

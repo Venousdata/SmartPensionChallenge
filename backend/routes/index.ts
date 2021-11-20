@@ -2,8 +2,12 @@ import { Express } from "express";
 import { getWebsiteViews } from "../controllers/webpage_controller";
 
 export default (app: Express): void => {
-  app.get("/webpageviews", async (req, res) => {
-    const data = await getWebsiteViews("./data/webserver.log");
-    res.send(data);
+  app.post("/webpageviews", async ({ body: { sortBy, order } }, res, next) => {
+    try {
+      const data = await getWebsiteViews("./data/webserver.log", sortBy, order);
+      res.send(data);
+    } catch ({ message }) {
+      res.status(500).send(message);
+    }
   });
 };
