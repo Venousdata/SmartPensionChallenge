@@ -1,15 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import { get } from "./api/api";
+import { get, post } from "./api/api";
 
 export default function App() {
+  const [sortBy, setSortBy] = useState("view");
+  const [order, setOrder] = useState("desc");
+  const [tableData, setTableData] = useState([]);
+
   useEffect(() => {
-    get("webpageviews").then((data) => {
-      console.log("===testing===", data);
-      console.log("==data type==", typeof data);
+    post("webpageviews", { sortBy, order }).then((data) => {
+      setTableData(data || []);
     });
-  }, []);
+  }, [sortBy, order]);
+
+  console.log("==tableData==", tableData);
 
   return (
     <div className="App">
