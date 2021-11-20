@@ -1,4 +1,4 @@
-const generateAllPathsAndIps = (
+export const generateAllPathsAndIps = (
   viewData: string[]
 ): { path: string; ip: string }[] =>
   viewData.map((line: string) => {
@@ -8,7 +8,7 @@ const generateAllPathsAndIps = (
     }
   });
 
-const findUniqueIpsForPath = (
+export const findUniqueIpsForPath = (
   path: string,
   allPathsAndIps: { path: string; ip: string }[]
 ) =>
