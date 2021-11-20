@@ -1,8 +1,16 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { get } from "./api/api";
 
-function App() {
+export default function App() {
+  useEffect(() => {
+    get("webpageviews").then((data) => {
+      console.log("===testing===", data);
+      console.log("==data type==", typeof data);
+    });
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -22,5 +30,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
