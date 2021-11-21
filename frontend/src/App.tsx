@@ -59,8 +59,8 @@ export default function App() {
           <TableBody>
             {tableRows.map((row: any, idx: number) => (
               <TableRow key={idx} style={{ border: 0 }}>
-                {Object.keys(row).map((key: string) => (
-                  <TableCell>{row[key]}</TableCell>
+                {Object.keys(row).map((key: string, idx: number) => (
+                  <TableCell key={idx}>{row[key]}</TableCell>
                 ))}
               </TableRow>
             ))}
