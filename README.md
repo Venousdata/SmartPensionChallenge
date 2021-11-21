@@ -16,19 +16,21 @@ I am not sure how this application looks on Linux-based operating systems, as I 
 
 ## Code test coverage statistics:
 
-app: 
--------------------|---------|----------|---------|---------|-------------------
-File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
--------------------|---------|----------|---------|---------|-------------------
-All files          |      80 |        0 |     100 |      80 |
- api               |   71.42 |        0 |     100 |   71.42 |
-  api.ts           |   66.66 |        0 |     100 |   66.66 | 18-19
-  config.ts        |     100 |      100 |     100 |     100 |
- api/__test__/data |     100 |      100 |     100 |     100 |
-  api.test.data.ts |     100 |      100 |     100 |     100 |
--------------------|---------|----------|---------|---------|-------------------
+frontend: 
+-----------------------|---------|----------|---------|---------|-------------------
+File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
+-----------------------|---------|----------|---------|---------|-------------------
+All files              |    77.5 |    27.27 |      50 |   70.96 |
+ src                   |   73.07 |       50 |    37.5 |      65 |
+  App.tsx              |   73.07 |       50 |    37.5 |      65 | 22,28-34,49-61
+ src/api               |   81.81 |        0 |     100 |      75 |
+  api.ts               |      80 |        0 |     100 |   71.42 | 18-19
+  config.ts            |     100 |      100 |     100 |     100 |
+ src/api/__test__/data |     100 |      100 |     100 |     100 |
+  api.test.data.ts     |     100 |      100 |     100 |     100 |
+-----------------------|---------|----------|---------|---------|-------------------
 
-api:
+backend:
 --------------------------|---------|----------|---------|---------|-------------------
 File                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
 --------------------------|---------|----------|---------|---------|-------------------
@@ -52,5 +54,5 @@ All files                 |     100 |    78.57 |     100 |     100 |
 5. Run the backend once the above command has compiled (should have 0 errors/warnings). Do this via the command `npm run dev`.
 6. Once the backend is up and running, in a new window, navigate to the frontend file directory and build it by running the command `tsc --w`.
 7. Run the frontend once the above command has compiled (should have 0 errors/warnings). Do this via the command `npm run start`.
-8. To run tests, watch tests, or retrieve test coverage, run any of the following commands in the frontend or backend: `npm run test`, `npm run test --watch`, `npm run test --coverage`.
+8. To run tests, watch tests, or retrieve test coverage, run any of the following commands in the frontend or backend: `npm run test`, `npm run test:watch`, `npm run test:coverage`.
 
